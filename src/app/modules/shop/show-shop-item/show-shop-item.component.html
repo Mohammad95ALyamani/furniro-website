@@ -1,0 +1,98 @@
+<div class="show-nav">
+    <p class="text-grey">Home</p>
+    <img class="nav-icon" src="../../../../assets/icons/arrow-right-ios-black.png" alt="">
+    <p class="text-grey">Shop</p>
+    <img class="nav-icon" src="../../../../assets/icons/arrow-right-ios-black.png" alt="">
+    <div class="line"></div>
+    <p>Asgaard sofa</p>
+</div>
+
+<div class="item-view-con">
+    <div class="item-images-con col-5">
+        <div class="item-images">
+            <div class="list-item-images col-2">
+                <div class="item-image" *ngFor="let image of item.images" (click)="changeViewImage(image)">
+                    <img [src]="image">
+                </div>
+
+            </div>
+
+            <div class="selected-image col-10">
+                <img [src]="selectedImage" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="item-properites-con col-5">
+        <div class="item-properites">
+            <p class="item-properite-title">{{item.name}}</p>
+            <p class="item-properite-price text-grey">{{item.price}}</p>
+            <p class="item-properite-desc">{{item.desc}}</p>
+
+            <div class="size-con">
+                <p>Size</p>
+                <div class="sizes">
+                    <p *ngFor="let size of item.sizes">{{size}}</p>
+                </div>
+
+            </div>
+
+            <div class="color-con">
+                <p>Color</p>
+                <div class="colors">
+                    <div [style]="'background-color:' + color" *ngFor="let color of item.colors">
+                    </div>
+                </div>
+
+                <div class="btn-con">
+                    <div class="min-add-btn">
+                        <div class="min" (click)="addMinItems('min')">-</div>
+                        <div>{{manyItem}}</div>
+                        <div class="add" (click)="addMinItems('add')">+</div>
+                    </div>
+
+                    <div class="add-to-cart">
+                        <p>Add To Cart</p>
+                    </div>
+
+                    <div class="compare">
+                        <img src="../../../../assets/icons/add.png" alt="">
+                        <p>Compare</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="details">
+            <div class="sku">
+                <p class="title text-grey">SKU</p>
+                <p class="text-grey">:</p>
+                <p class="value text-grey">{{item.sku}}</p>
+            </div>
+
+            <div class="category">
+                <p class="title text-grey">Category</p>
+                <p class="text-grey">:</p>
+                <p class="value text-grey">{{item.category}}</p>
+            </div>
+
+            <div class="tags">
+                <p class="title text-grey">Category</p>
+                <p class="text-grey">:</p>
+                <p class="value text-grey">{{item.tags}}</p>
+            </div>
+
+            <div class="share">
+                <p class="title text-grey">Share</p>
+                <p class="text-grey">:</p>
+                <img src="../../../../assets/icons/facebook.png" alt="">
+                <img src="../../../../assets/icons/linkedin.png" alt="">
+                <img src="../../../../assets/icons/tweet.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="horizantal-line"></div>
+
+<app-show-shop-item-desc></app-show-shop-item-desc>

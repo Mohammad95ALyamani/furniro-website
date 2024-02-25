@@ -1,0 +1,28 @@
+<div class="filter-con">
+    <div class="first-part col-6">
+        <div class="filter">
+            <div class="img-con"><img class="filter-img" src="../../../../../assets/icons/filter.png" alt=""></div>
+            <p>Filter</p>
+        </div>
+    
+       <div class="img-con"> <img class="squ-img" src="../../../../../assets/icons/show-gallery-squre.png" (click)="showGallery(1)" alt=""></div>
+        
+        <div class="img-con"><img class="tri-img" src="../../../../../assets/icons/show-gallery-triangle.png" alt="" (click)="showGallery(2)"></div>
+
+        <div class="line"></div>
+
+        <p class="showing-result">Showing 1–{{showToIndex}} of {{shopItems.length}} results</p>
+    </div>
+
+    <div class="second-part col-6">
+        <div class="show">
+            <p>Show</p>
+            <input type="text" [(ngModel)]="showToIndex" (ngModelChange)="changeShowToIndex()">
+        </div>
+
+        <div class="shortby">
+            <p>Shortby</p>
+            <input type="text" placeholder="Defualt">
+        </div>
+    </div>
+</div>

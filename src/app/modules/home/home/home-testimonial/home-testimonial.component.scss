@@ -1,0 +1,213 @@
+@use "../../../../helper/variables" as *;
+@use "../../../../helper/mixins" as *;
+@use "../../../../helper/helper" as *;
+
+.home-testimonial-con {
+  margin: 50px 0;
+  overflow: hidden;
+  background-color: #fcf8f3;
+  padding: 35px 0;
+  padding-left: 80px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  .title {
+    align-self: center;
+    h1 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: $dark-grey;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+
+    button {
+      border: 1px solid $primary;
+      background-color: $primary;
+      color: white;
+      font-size: 0.9rem;
+      padding: 10px 35px;
+    }
+  }
+
+  .selected-testimon {
+    padding: 10px 0;
+    padding-right:10px ;
+    display: flex;
+    .img-con {
+      position: relative;
+      height: 582px;
+      max-width: 100%;
+      overflow: hidden;
+      padding: 0;
+      @include transition(.5s);
+      opacity: 1;
+      &.opacity{
+        opacity: 0;
+      }
+      img {
+        height: 582px;
+      }
+    }
+
+    .testimon-info-con {
+      display: flex;
+      align-items: end;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      margin: 30px;
+      .testimon-info {
+        padding: 20px;
+        background-color: rgba($color: white, $alpha: 0.5);
+        p {
+          margin-bottom: 15px;
+        }
+
+        h1 {
+          font-size: 1.4rem;
+        }
+      }
+
+      button {
+        border: none;
+        background-color: $primary;
+        padding: 10px 15px;
+        img {
+          width: 18px;
+          height: 12px;
+        }
+      }
+    }
+  }
+
+  .testimon-img-con {
+    .images {
+      display: flex;
+      justify-content: start;
+      padding: 10px 0;
+      position: relative;
+      overflow: hidden;
+      .testimon-image {
+        @include transition(.5s);
+        &.selected-1{
+            @include translateX(-380px);
+        }
+
+        &.selected-2{
+            @include translateX(-380px * 2);
+        }
+
+        margin: 0 10px;
+        max-width: 372px;
+        height: 486px;
+      }
+
+      button {
+        position: absolute;
+        background-color: $light;
+        border: none;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 50%;
+        right: 0;
+        cursor: pointer;
+        box-shadow: 0px 0px 15px -1px rgba(0, 0, 0, 0.3);
+        -webkit-box-shadow: 0px 0px 15px -1px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 0px 0px 15px -1px rgba(0, 0, 0, 0.3);
+        @include borderRaduis(50%);
+        @include translate(-50%, -50%);
+        img {
+          width: 7px;
+          height: 13px;
+        }
+      }
+    }
+
+    .dot-con {
+      display: flex;
+      padding: 20px;
+      margin-top: 15px;
+      .dot {
+        cursor: pointer;
+        margin-right: 20px;
+        &.selected {
+          @include borderRaduis(50%);
+          border: 1px solid $primary;
+        }
+        span {
+          &.selected {
+            background-color: $primary;
+          }
+          @include borderRaduis(50%);
+          display: block;
+          width: 10px;
+          height: 10px;
+          margin: 3px;
+          background-color: $grey;
+        }
+      }
+    }
+  }
+}
+
+@include breackoints(large) {
+  .selected-testimon{
+    justify-content: end;
+  }
+}
+
+@include breackoints(medium) {
+  .title{
+    width: 100%;
+  }
+
+  .selected-testimon{
+    justify-content: start;
+    width: 40%;
+    margin-top: 20px;
+  }
+
+   .testimon-img-con{
+    width: 60%;
+    margin-top: 20px;
+  }
+}
+
+@include breackoints(small) {
+  .title, .selected-testimon, .testimon-img-con{
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .selected-testimon{
+    justify-content: start;
+  }
+
+  .dot-con{
+    justify-content: center;
+  }
+}
+
+@include breackoints(mobile) {
+  .selected-testimon{
+    justify-content: start;
+  }
+
+  .title, .selected-testimon, .testimon-img-con{
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .dot-con{
+    justify-content: center;
+  }
+}

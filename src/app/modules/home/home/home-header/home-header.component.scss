@@ -1,0 +1,82 @@
+@use "../../../../helper/variables" as *;
+@use "../../../../helper/mixins" as *;
+
+.home-header {
+  height: 716px;
+  background-image: url("../../../../../assets/home-header.png");
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.content {
+  background-color: $primary-light;
+  padding: 40px 30px;
+  max-width: 500px;
+  margin: 0px 60px;
+}
+
+.new-arival,
+.discover,
+.lorem {
+  margin-bottom: 15px;
+}
+
+.new-arival {
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+}
+
+.discover {
+  font-size: 3rem;
+  color: $primary;
+  @include transition(0.5s);
+}
+
+.lorem {
+  font-size: 0.9rem;
+}
+
+button {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  margin-top: 30px;
+  background-color: $primary;
+  border: none;
+  outline: none;
+  padding: 20px 50px;
+  color: $light;
+  font-size: 0.8rem;
+}
+
+button p {
+    position: relative;
+    z-index: 1;
+    color: $light;
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0%;
+  width: 100%;
+  background: linear-gradient(to bottom, #444, transparent);
+  @include transition(0.5s);
+}
+
+button:hover::before {
+  height: 300%;
+}
+
+@include breackoints(mobile) {
+  .content{
+    margin: 0px 30px;
+  }
+
+  .discover{
+    font-size: 2rem;
+  }
+}

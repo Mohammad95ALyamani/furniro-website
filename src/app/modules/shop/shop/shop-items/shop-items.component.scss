@@ -1,0 +1,187 @@
+@use "../../../../helper/variables" as *;
+@use "../../../../helper/mixins" as *;
+@use "../../../../helper/helper" as *;
+
+.products-con {
+  .product-cards {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 30px 60px;
+    .product-con {
+      padding: 0 20px;
+      margin: 15px 0;
+      .product {
+        background-color: $light-grey;
+        position: relative;
+        overflow: hidden;
+        .item-img {
+          width: 100%;
+        }
+
+        .item-img.triangle {
+          width: 50% !important;
+        }
+
+        .overlay {
+          @include overlay($dark, 0.8);
+          @include transition(0.5s);
+          @include translateY(10px);
+          @include scale(1.1);
+          opacity: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          button {
+            @include transition(0.5s);
+            @include borderRaduisTLBR(5px);
+            color: $primary;
+            background-color: white;
+            padding: 15px 60px;
+            border: none;
+            cursor: pointer;
+
+            &:hover {
+              background-color: $primary-light;
+            }
+          }
+
+          .actions {
+            display: flex;
+            margin-top: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+            .action {
+              display: flex;
+              justify-content: center;
+              position: relative;
+              align-items: center;
+              margin: 10px 15px;
+              cursor: pointer;
+              img {
+                width: 13px;
+                height: 13px;
+                margin-right: 5px;
+              }
+
+              p {
+                color: $light;
+              }
+
+              &::before {
+                @include transition(0.5s);
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0px;
+                height: 2px;
+                background-color: $primary;
+              }
+
+              &:hover::before {
+                width: 100%; /* Set width to 100% */
+                background-color: $primary;
+              }
+            }
+          }
+        }
+
+        &:hover .overlay {
+          opacity: 1;
+          @include translateY(0px);
+        }
+      }
+    }
+
+    .product-con.triangle {
+      width: 50% !important;
+    }
+    .product-content-con.triangle {
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+    }
+    .product-content {
+      padding: 0 20px;
+      h1 {
+        font-size: 1.5rem;
+        margin: 10px 0;
+      }
+      
+      p {
+        margin-bottom: 10px;
+        color: $grey;
+      }
+      .price {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        font-size: 1.3rem;
+        p {
+          color: $dark;
+        }
+
+        & .line-through {
+          text-decoration: line-through;
+          color: $grey;
+        }
+      }
+    }
+
+    .product-content.triangle{
+      width: 50% !important;
+    }
+  }
+
+  .btn {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    button {
+      cursor: pointer;
+      @include transition(0.5s);
+      @include borderRaduis(10px);
+      background-color: $primary-light;
+      border: none;
+      color: $dark;
+      padding: 15px 20px;
+      min-width: 50px;
+      margin: 10px;
+    }
+
+    button.active {
+      background-color: $primary;
+      color: white;
+    }
+
+    button:hover {
+      background-color: $primary;
+      color: white;
+    }
+  }
+}
+
+@include breackoints(medium) {
+  .product-con {
+    width: 33.333333%;
+  }
+}
+
+@include breackoints(small) {
+  .product-con {
+    width: 50%;
+  }
+}
+
+@include breackoints(mobile) {
+  .title {
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+
+  .product-con {
+    width: 100%;
+  }
+}

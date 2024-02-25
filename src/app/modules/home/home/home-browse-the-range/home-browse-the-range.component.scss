@@ -1,0 +1,69 @@
+@use "../../../../helper/variables" as *;
+@use "../../../../helper/mixins" as *;
+@use "../../../../helper/helper" as *;
+
+.title {
+  text-align: center;
+  padding: 50px 10px;
+  h1 {
+    font-size: 2rem;
+    color: $dark;
+    @include transition(0.5s);
+  }
+  p {
+    color: $dark-grey;
+  }
+}
+
+.gallery {
+  padding: 0 70px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gallery .gallery-content {
+  padding: 15px;
+
+  img {
+    width: 100%;
+    border-radius: 10px;
+    max-height: 480px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+  }
+
+  p {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+}
+
+@include breackoints(medium) {
+  .gallery-content {
+    width: 50%;
+  }
+}
+
+@include breackoints(small) {
+  .gallery-content {
+    width: 50%;
+  }
+}
+
+@include breackoints(mobile) {
+  .title {
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+  .gallery-content {
+    width: 100%;
+  }
+
+  .gallery-content p {
+    font-size: 1rem;
+  }
+}

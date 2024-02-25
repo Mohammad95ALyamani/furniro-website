@@ -1,0 +1,95 @@
+@mixin breackoints($point) {
+  @if $point == mobile {
+    @media (max-width: 767px) {
+      @content;
+    }
+  } @else if $point == small {
+    @media (min-width: 768px) and (max-width: 991px) {
+      @content;
+    }
+  } @else if $point == medium {
+    @media (min-width: 992px) and (max-width: 1199px) {
+      @content;
+    }
+  } @else if $point == large {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+}
+
+@mixin logo-size() {
+  height: 32px;
+  width: 50px;
+}
+
+@mixin overlay($color, $opacity) {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color, $opacity);
+}
+
+@mixin transition($time) {
+  transition: all $time ease;
+  -webkit-transition: all $time ease;
+  -moz-transition: all $time ease;
+  -ms-transition: all $time ease;
+  -o-transition: all $time ease;
+}
+
+@mixin translateY($number){
+  transform: translateY($number);
+  -webkit-transform: translateY($number);
+  -moz-transform: translateY($number);
+  -ms-transform: translateY($number);
+  -o-transform: translateY($number);
+}
+
+@mixin translateX($number){
+  transform: translateX($number);
+  -webkit-transform: translateX($number);
+  -moz-transform: translateX($number);
+  -ms-transform: translateX($number);
+  -o-transform: translateX($number);
+}
+
+@mixin translate($number, $number2){
+  transform: translate($number);
+  -webkit-transform: translate($number);
+  -moz-transform: translate($number);
+  -ms-transform: translate($number);
+  -o-transform: translate($number);
+}
+
+@mixin scale($number){
+  transform: scaleY($number);
+  -webkit-transform: scaleY($number);
+  -moz-transform: scaleY($number);
+  -ms-transform: scaleY($number);
+  -o-transform: scaleY($number);
+}
+
+
+@mixin borderRaduisTLBR($number){
+  border-bottom-right-radius: $number;
+  border-top-left-radius: $number;
+  -webkit-border-bottom-right-radius: $number;
+  -moz-border-bottom-right-radius: $number;
+  -ms-border-bottom-right-radius: $number;
+  -o-border-bottom-right-radius: $number;
+  -webkit-border-top-left-radius: $number;
+  -moz-border-top-left-radius: $number;
+  -ms-border-top-left-radius: $number;
+  -o-border-top-left-radius: $number;
+}
+
+@mixin borderRaduis($number){
+  border-radius: $number;
+  -webkit-border-radius: $number;
+  -moz-border-radius: $number;
+  -ms-border-radius: $number;
+  -o-border-radius: $number;
+}

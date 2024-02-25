@@ -1,0 +1,44 @@
+@use "../../../../helper/variables" as *;
+@use "../../../../helper/mixins" as *;
+@use "../../../../helper/helper" as *;
+
+.spons-con {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: #faf3ea;
+  padding: 80px 0;
+  img {
+    width: 100%;
+  }
+}
+
+@include breackoints(small) {
+    .spons-con{
+        .img-con{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50% !important;
+            img{
+                width: 50%;
+                margin-top: 50px;
+            }
+        }
+    }
+}
+
+@include breackoints(mobile) {
+    .spons-con{
+        .img-con{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100% !important;
+            img{
+                width: 50%;
+                margin-top: 50px;
+            }
+        }
+    }
+}

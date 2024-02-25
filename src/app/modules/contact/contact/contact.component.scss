@@ -1,0 +1,133 @@
+@use "../../../helper/variables" as *;
+@use "../../../helper/mixins" as *;
+@use "../../../helper/helper" as *;
+
+.contact-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 70px;
+  h1 {
+    font-size: 30px;
+  }
+
+  p {
+    max-width: 700px;
+    color: $grey;
+    text-align: center;
+    margin: 0 20px;
+    margin-top: 20px;
+  }
+}
+
+.contact-form {
+  margin: 100px 15%;
+  display: flex;
+  flex-wrap: wrap;
+  .address {
+    .address-info,
+    .phone-info,
+    .working-info {
+      display: flex;
+
+      .icon {
+        width: 22px;
+        img {
+          width: 100%;
+        }
+      }
+
+      .info {
+        width: 212px;
+        margin: 0 20px;
+        p {
+          margin-top: 15px;
+        }
+      }
+    }
+
+    .phone-info,
+    .working-info {
+      margin-top: 50px;
+    }
+  }
+
+  .form {
+    form {
+      .form-entity {
+        &:not(:first-child) {
+          margin-top: 30px;
+        }
+        label {
+          display: block;
+          margin-bottom: 20px;
+        }
+        ::placeholder {
+          color: $grey;
+        }
+        input {
+          @include borderRaduis(10px);
+          height: 60px;
+          width: 100%;
+          padding: 20px;
+          border: 1px solid $grey;
+        }
+
+        textarea {
+          @include borderRaduis(10px);
+          width: 100%;
+          resize: none;
+          padding: 20px;
+          border: 1px solid $grey;
+        }
+      }
+
+      button {
+        @include borderRaduis(10px);
+        margin-top: 30px;
+        background-color: $primary;
+        border: none;
+        color: white;
+        height: 55px;
+        width: 250px;
+      }
+    }
+  }
+}
+
+@include breackoints(medium) {
+}
+
+@include breackoints(small) {
+    .form, .address{
+        width: 100%;
+    }
+    .address{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .form{
+        margin-top: 100px;
+    }
+}
+
+@include breackoints(mobile) {
+    .form, .address{
+        width: 100%;
+    }
+
+    .address{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .form{
+        margin-top: 100px;
+    }
+}

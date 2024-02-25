@@ -1,0 +1,59 @@
+<div class="products-con">
+    <div class="product-cards">
+        <div class="product-con col-3" [ngClass]="{'triangle': showType == 2}" *ngFor="let item of showArray">
+            <div class="product">
+                <div class="overlay">
+                    <button>Add to cart</button>
+
+                    <div class="actions">
+                        <div class="action">
+                            <img src="../../../../../assets/icons/share.png" alt="">
+                            <p>Share</p>
+                        </div>
+
+                        <div class="action">
+                            <img src="../../../../../assets/icons/compare.png" alt="">
+                            <p>Compare</p>
+                        </div>
+
+                        <div class="action">
+                            <img src="../../../../../assets/icons/like.png" alt="">
+                            <p>Like</p>
+                        </div>
+
+                        <div class="action" routerLink="/shop/show-item">
+                            <img src="../../../../../assets/icons/details.png" alt="">
+                            <p>Show details</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-content-con" [ngClass]="{'triangle': showType == 2}">
+                    <img class="item-img" [ngClass]="{'triangle': showType == 2}" [src]="item.imageurl" alt="">
+                    <div class="product-content" [ngClass]="{'triangle': showType == 2}">
+                        <h1>{{item.name}}</h1>
+                        <p>{{item.desc}}</p>
+                        <div class="price">
+                            <p>{{item.price}}</p>
+                            <p class="line-through" *ngIf="item.beforeSalePrice">{{item.beforeSalePrice}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn">
+        <button *ngIf="currentPage != 1" (click)="previousPage()">Prev</button>
+        <div *ngFor="let index of generatePageCountArray()">
+            <button  (click)="goToPage(index)" *ngIf="index != -1" [ngClass]="{'active':currentPage == index}">
+               {{index}}
+            </button>
+            
+            <button  *ngIf="index == -1">
+                ...
+             </button>
+        </div>
+        <button (click)="nextPage()" *ngIf="currentPage != totalPages">Next</button>
+    </div>
+</div>

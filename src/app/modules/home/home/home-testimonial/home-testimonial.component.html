@@ -1,0 +1,44 @@
+<div class="home-testimonial-con">
+    <div class="title col-4">
+        <h1>50+ Beautiful rooms <br>inspiration</h1>
+
+        <p>Our designer already made a lot of beautiful prototipe of rooms that inspire you</p>
+       
+        <button>Explore More</button>
+    </div>
+
+    <div class="col-4 selected-testimon">
+        <div class="img-con">
+            <img [src]="selectedTestimon.imageUrl" alt="">
+
+            <div class="testimon-info-con">
+                <div class="testimon-info">
+                    <p>{{selectedTestimon.title}}</p>
+                    <h1>{{selectedTestimon.desc}}</h1>
+                </div>
+    
+                <button><img src="./assets/icons/arrow-right.png"></button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-4 testimon-img-con">
+        <div class="images-con">
+            <div class="images">
+                
+                <img [class]="'testimon-image selected-'+selectedIndex" [ngClass]="selectedTestimon" [src]="testimon.imageUrl" alt="" *ngFor="let testimon of testimons; let i = index;">
+    
+                <button (click)="changeSelectedBtn()"><img src="./assets/icons/arrow-right-ios.png"></button>
+            </div>
+        </div>
+        
+        <div class="dot-con">
+            <div *ngFor="let testimon of testimons; let i = index;">
+                <div class="dot" [ngClass]="{'selected': testimon == selectedTestimon}">
+                    <span [ngClass]="{'selected': testimon == selectedTestimon}" (click)="changeSelected(i)"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

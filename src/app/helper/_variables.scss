@@ -1,0 +1,22 @@
+$primary: #b88e2f;
+$primary-light: #FFF3E3;
+$light: #f5f5f5;
+$dark: #444;
+$grey:#ccc;
+$light-grey:#F4F5F7;
+$dark-grey: #666666;
+
+$colors: (
+  "primary": $primary,
+  "light": $light,
+  "dark": $dark,
+  "grey": $grey,
+  "dark-grey": $dark-grey,
+  "light-grey": $light-grey,
+);
+
+@each $name, $color in $colors {
+  .text-#{$name} {
+    color: $color;
+  }
+}

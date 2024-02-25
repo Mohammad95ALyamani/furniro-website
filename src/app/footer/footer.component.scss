@@ -1,0 +1,140 @@
+@use "../helper/helper" as *;
+@use "../helper/mixins" as *;
+@use "../helper/variables" as *;
+
+footer {
+  border-top: 1px solid $grey;
+  .footer-con {
+    margin: 0 70px;
+    display: flex;
+    border-bottom: 1px solid $grey;
+    flex-wrap: wrap;
+    padding: 40px 0;
+    .f-item {
+      padding: 10px;
+    }
+
+    .f-item .f-title {
+      font-size: 1.4rem;
+    }
+
+    .f-item .f-title .first-title {
+      font-weight: bolder;
+    }
+
+    .desc {
+      margin-top: 50px;
+    }
+
+    .f-list {
+      list-style: none;
+    }
+
+    .f-list .f-list-item {
+      margin-top: 40px;
+    }
+
+    .f-list .f-list-item p {
+      cursor: pointer;
+      position: relative;
+      display: inline-block;
+      @include transition(0.5s);
+    }
+
+    .f-list-item p::before {
+      content: "";
+      width: 0px;
+      height: 2px;
+      z-index: 1;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background-color: $primary;
+      @include transition(0.5s);
+    }
+
+    .f-list-item p:hover::before {
+      width: 100%; /* Set width to 100% */
+      transform: scaleX(1); /* Scale horizontally to 1 */
+      background-color: $primary;
+    }
+
+    .f-list-item p:hover {
+      color: $primary;
+    }
+
+    .edit-text {
+      margin-top: 40px;
+
+      ::placeholder {
+        color: $grey;
+      }
+
+      input {
+        border: none;
+        outline: none;
+        padding: 5px 0;
+        border-bottom: 1px solid $dark;
+      }
+
+      button {
+        background: white;
+        margin: 0 10px;
+        padding: 5px;
+        border: none;
+        border-bottom: 1px solid $dark;
+      }
+    }
+  }
+
+  .copyright {
+    margin: 40px 0px;
+    font-size: 0.9rem;
+    text-align: center;
+    color: $dark-grey;
+  }
+
+  @include breackoints(large) {
+    .footer-con {
+      flex-wrap: nowrap;
+    }
+  }
+
+  @include breackoints(medium) {
+    .f-item {
+      width: 50%;
+    }
+
+    .f-item:nth-child(3),
+    .f-item:nth-child(4) {
+      margin-top: 50px;
+    }
+  }
+
+  @include breackoints(small) {
+    .f-item {
+      width: 50%;
+    }
+
+    .f-item:nth-child(3),
+    .f-item:nth-child(4) {
+      margin-top: 50px;
+    }
+  }
+
+  @include breackoints(mobile) {
+    .f-item {
+      width: 100%;
+      //   display: flex;
+      //   flex-direction: column;
+      //   justify-content: center;
+      &:not(:first-child) {
+        margin-top: 50px;
+      }
+    }
+
+    .f-title {
+      text-align: center;
+    }
+  }
+}
